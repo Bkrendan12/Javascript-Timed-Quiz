@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js"></script>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png"> 
+    
+    <title>JavaScript Quiz</title>
+</head>
+<body>
+
+    
+
+    <div id="counter-logo-div">
+
+        <div class="logo-img">
+            <img src="./css/quiz-logo copy.png" alt="quiz logo">
+        </div>
+
+        <div id="timer-div">
+            <h2 id="countdown"></h2>
+           
+        </div>
+      
+      </div>
+
+          <!-- QUIZ  -->
+        <div id="quiz-container">
+            
+            <div id="start-box" class="startDiv start-div-section">
+                <p>Start the Quiz!</p>
+            </div>
+
+            <div id="questions-box-1" class="questionsDiv questions-section">
+                <P>FIRST QUESTION</P>
+            </div>
+            
+            <div id="questions-box-2" class="questionsDiv questions2-section">
+                <p>SECOND QUESTION</p>
+            </div>
+
+            <div id="questions-box-3" class="questionsDiv questions3-section">
+                <p>THIRD QUESTION</p>
+            </div>
+
+            <div id="questions-box-4" class="questionsDiv questions4-section">
+                <p>FOURTH QUESTION</p>
+            </div>
+
+            <div id="end-box" class="questionsDiv end-section">
+                <p>END</p>
+            </div>
+
+            <div id="score-box" class="score-section">
+                <p>SCORE</p>
+            </div>
+        
+
+        
+            <!-- <div id="answer-box" class="questionsDiv answer-section">
+               
+                <span class="answerSpan">answers here</span>
+            </div> -->
+
+
+            <div id="answer-box" class="questionsDiv answer-section">
+                <form>
+                   
+                        <label for="name">Your Answer</label>
+                        <select id="AnswerSpan">
+                            <option value="A"></option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>   
+                        </select>
+
+                     
+    
+                      
+                    
+                    <button id="save">submit</button>
+                    <!-- <div id="btn1" class="button-div1">
+                        <button class="btn" onclick="question1Div()"> QUESTION 2</button>
+                      </div> -->
+                  </form> 
+            </div>
+
+           
+
+            <!-- BUTTONS -->
+    
+            <div class="allButtons">
+
+                <div id="startBtn" class="start-button-div">
+                    <button class="btnStart" onclick="startFunction(), startTimer()"> START</button>
+                  </div>
+    
+                <div id="btn1" class="button-div1">
+                    <button class="btn" onclick="question1Div()"> QUESTION 2</button>
+                  </div>
+    
+                  <div id="btn2" class="button-div2">
+                    <button class="btn2" onclick="question2Div()">QUESTION 3</button>
+                  </div>
+    
+                  <div id="btn3" class="button-div3">
+                    <button class="btn3" onclick="question3Div()"> QUESTION 4</button>
+                  </div>
+    
+                   <div id="endBtn" class="button-end">
+                    <button class="btnEnd" value="GET SCORE" onclick="endGame()"> END </button> 
+                  </div>
+
+
+            </div>
+
+
+       
+  
+
+<script src="./js/script.js"></script>
+
+</body>
+</html>
