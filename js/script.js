@@ -1,33 +1,19 @@
-    var startPage = document.getElementById("start-box");
-    var firstQuestion = document.getElementById("questions-box-1");
-    var secondQuestion = document.getElementById("questions-box-2");
-    var thirdQuestion = document.getElementById("questions-box-3");
-    var fourthQuestion = document.getElementById("questions-box-4");
+var startBtn = document.getElementById("start");
+var questionsBox = document.querySelector(".questionsDiv");
+var quizBox = document.getElementById("quiz-container");
+var highScoreBtn = document.querySelector(".Highscores");
 
-    var answerBox =  document.getElementById("answer-box")
-    var endPage = document.getElementById("end-box");
-    var scorePage = document.getElementById("score-box");
-    
-    var startButton = document.getElementById("startBtn");
-    var firstButton = document.getElementById("btn1");
-    var secondButton = document.getElementById("btn2");
-    var thirdButton = document.getElementById("btn3");
-    var endButton = document.getElementById("endBtn");
+var questions = [];
+var choices = [];
+var answers = [];
+var score = 0;
+
+// loop thru the questions and if answer is c push the value to answers
 
 
-    var student = document.getElementById("student-names");
-    var saveButton = document.getElementById("save");
-    var savedName = document.getElementById("saved-name");
 
 
-    var score = 0;  
-    var correct = 0;
-
-   
-
-    
-
-    var question = [  
+    var questions = [  
         {   
          question: "What does parseInt do?",
      
@@ -69,117 +55,66 @@
         }
      ];
 
-    var choice = [];
-    var choices = []; 
-    var answerA = [];
-    var answerB = [];
-    var answerC =[] ;
-    
-function startTimer() {
-        var counter = 11;
-        setInterval(function() {
-            counter--;    
-            if (counter > 0 ) {
-                countdown = document.getElementById("countdown");
-                countdown.innerHTML = counter;
-            } 
-            if (counter === 0) {
-                countdown.innerHTML = "End";
-                clearInterval(setInterval);
-                endGame();
-            }
-        }, 1000);
-    };
+     var questions =
+     [
+       {
+           question: "What is the capital of United Kingdom?",
+           choices: ["Manchester", "Birmingham", "London", "Birmingham"],
+           answer: 2
+       },
+
+       {
+           question: "What is the capital of United States?",
+           choices: ["California", "New York", "Miami", "Florida"],
+           answer: 1
+       }
 
 
-// this function pushed a new array to the first question container//
-//use this somehow pushing your question arrays
+     ];
 
 
 
 
+var startBtn = document.getElementById("start");
+var questionsBox = document.querySelector(".questionsDiv");
+var quizBox = document.getElementById("quiz-container");
+var highScoreBtn = document.querySelector(".Highscores");
 
-function startFunction() {
-    startPage.style.display="none";
-    firstQuestion.style.display="block";
-    secondQuestion.style.display="none";
-    thirdQuestion.style.display="none";
-    fourthQuestion.style.display="none";
-    endPage.style.display="none";
-    
-    startButton.style.display="none"
-    firstButton.style.display="block"; 
-    secondButton.style.display="none"; 
-}
 
-function question1Div() { 
+document.querySelector('#start').addEventListener('click',function(){
+    startBtn.style.display='none';
 
-    firstQuestion.style.display="none";
-    secondQuestion.style.display="block";
-    thirdQuestion.style.display="none";
-    fourthQuestion.style.display="none";
-    endPage.style.display="none";
-    
-    firstButton.style.display="none"; 
-    secondButton.style.display="block"; 
-    thirdButton.style.display="none";
-}
+    let counter = 5;
 
-function question2Div() { 
-    firstQuestion.style.display="none";
-    secondQuestion.style.display="none";
-    thirdQuestion.style.display="block";
-    fourthQuestion.style.display="none";
-    endPage.style.display="none";
-    
-    secondButton.style.display="none"; 
-    thirdButton.style.display='block'; 
-    endButton.style.display="none";
-}
+    setInterval(function() {
+        counter--;    
+        if (counter > 0 ) {
+            countdown = document.getElementById("countdown");
+            countdown.innerHTML = counter;
+        } 
+        if (counter === 0) {
+            countdown.innerHTML = "End";
+            clearInterval(setInterval);
+            quizBox.setAttribute("style", "width: 250px; height: 150px");
+            questionsBox.style.display = 'none';
+            highScoreBtn.style.visibility = 'visible';
+        }
+    }, 1000);
+  
+  });
 
-function question3Div() { 
-    firstQuestion.style.display="none";
-    secondQuestion.style.display="none";
-    thirdQuestion.style.display="none";
-    fourthQuestion.style.display="block";
-    endPage.style.display="none";
-    
-    thirdButton.style.display="none"; 
-    endButton.style.display='block'; 
-}
 
-function questionEnd() { 
-    firstQuestion.style.display="none";
-    secondQuestion.style.display="none";
-    thirdQuestion.style.display="none";
-    fourthQuestion.style.display="none";
-    endPage.style.display="none";
 
-    answerBox.style.display="none";
-    endButton.style.display='none'; 
-}
 
-function endGame(url) {
 
-    var win = window.open(url, 'https://google.com');
-    win.focus();
 
-    firstQuestion.style.display="none";
-    secondQuestion.style.display="none";
-    thirdQuestion.style.display="none";
-    fourthQuestion.style.display="none";
-    answerBox.style.display='none';
-    endPage.style.display="none";
 
-    startButton.style.display="none";
-    firstButton.style.display="none";
-    secondButton.style.display="none";
-    thirdButton.style.display="none";
-    startButton.style.display="none";
 
-    window.open("file:///Users/brendankurbkylo/Desktop/jsTemplates/Highscores/index.html");
 
-}
+
+
+
+
 
 
 
