@@ -35,8 +35,26 @@
 
             <div id="questions-box" class="questionsDiv">
 
-                <h2 id="questionTitle"></h2>
-                <ul id="answerChoices"></ul>
+                <h1 id="question">ANSWER THE QUESTION</h1>
+                <div class="choice-container"> 
+                    <p class="choice-prefix">A</p>
+                    <p class="choice-text" data-number="1">choice 1</p>
+                </div>
+
+                <div class="choice-container"> 
+                    <p class="choice-prefix">B</p>
+                    <p class="choice-text" data-number="2">choice 2</p>
+                </div>
+
+                <div class="choice-container"> 
+                    <p class="choice-prefix">C</p>
+                    <p class="choice-text" data-number="3">choice 3</p>
+                </div>
+
+                <div class="choice-container"> 
+                    <p class="choice-prefix">D</p>
+                    <p class="choice-text" data-number="4">choice 4</p>
+                </div>
 
             </div>
 
@@ -46,12 +64,14 @@
 
                 <div id="startButton">                 
                     <button id="start"> start </button>
-                    <a href="../Javascript-Timed-Quiz/Highscores/highscores.html" class="Highscores">Highscores</a>
+                    <a href="../Javascript-Timed-Quiz/Highscores/highscores.html" class="Highscores" (click)="$event.preventDefault()">Highscores</a>
                 </div>
 
             </div> 
         
         </div>
+
+
 
 <script src="./js/script.js"></script>
 

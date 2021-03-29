@@ -82,17 +82,18 @@ h2 {
 
 /* QUIZ CONTENT */
 
+
+
 #quiz-container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
     width: 50%;
-    height: 400px;
+    height: auto;
     background-color: #ac6161;
-    margin: 20px 0 10px 0;
-    padding: 30px;
+    margin: 20px 0 50px 0;
     background: linear-gradient(#374f23, #4d4216);
     border-radius: 7px;
     opacity: 90%;
@@ -100,16 +101,55 @@ h2 {
 
 .questionsDiv {
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 75%;
     height: 50%;
     background-color: #8cb093;
     text-align: left;
     padding: 10px;
+    margin-top: 30px;
     font-size: 15px;
-  
+}
+
+#question {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+
+.choice-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    width: 100%;
+    background: #85f9a0;
+    font-size: 18px;
+    text-align: center;
+    visibility: visible;
+}
+
+.choice-container:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(216, 250, 217, 0.6);
+    transform: scale(1.02);
+    transform: transform 100ms;
+}
+
+.choice-prefix {
+    
+    color: white;
+}
+
+.choice-text {
+    padding: 20px;
+    width: 100%; 
 }
 
 
@@ -121,7 +161,6 @@ h2 {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-bottom: 0;
 }
 
 #start {
@@ -141,9 +180,9 @@ h2 {
 #start:hover {
     background-color: black;
     cursor: pointer;
-    color: #e87878;
-    opacity: 120% !important;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(8, 114, 244, 0.6);
+    color: rgb(245, 180, 180);
+    opacity: 50%;
+    box-shadow: 0 1.4rem 1.4rem 0 rgba(182, 98, 83, 0.6);
     transition: transform 150ms;
     transform: scale(1.03);
 }
@@ -172,6 +211,7 @@ h2 {
     1px 1px 0 rgb(163, 244, 163),
     1px 1px 0 green,
     1px 1px 0 rgb(8, 0, 155);
+    
 }
- 
+
 
