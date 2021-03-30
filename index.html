@@ -25,37 +25,38 @@
 
         <div id="timer-div">
             <h2 id="countdown"></h2>
-           
+            <h2 id="scoreBoard">  </h2>
         </div>
       
       </div>
 
 <!-- QUIZ  -->
+
+<!-- SHOULD I PUT THE QUIZ ANSWERING AND SUBMITTING ANSWERS INSIDE A FORM? -->
         <div id="quiz-container">
 
             <div id="questions-box" class="questionsDiv">
 
-                <h1 id="question">ANSWER THE QUESTION</h1>
-                <div class="choice-container"> 
-                    <p class="choice-prefix">A</p>
-                    <p class="choice-text" data-number="1">choice 1</p>
+                <h1 id="question">Placeholder</h1>
+               
+                <div id="quiz-question" class="answer-container">                   
+                    <input class="answer" type="submit" value="1" data-number="1">
+                    <input class="answer" type="submit" value="2" data-number="2">
+                    <input class="answer" type="submit" value="3" data-number="3">
+                    <input class="answer" type="submit" value="4" data-number="4" >
                 </div>
 
-                <div class="choice-container"> 
-                    <p class="choice-prefix">B</p>
-                    <p class="choice-text" data-number="2">choice 2</p>
-                </div>
+            </div>
 
-                <div class="choice-container"> 
-                    <p class="choice-prefix">C</p>
-                    <p class="choice-text" data-number="3">choice 3</p>
+            <div class="wrapper">
+                <div class="container2">
+                    <div class="card-contents">
+                        <h3 class="quiz-page"></h3>
+                        <form action="../Javascript-Timed-Quiz/Highscores/highscores.html">
+                           <input id="submitBtn" type="submit" value="Submit Quiz">
+                        </form>
+                    </div>
                 </div>
-
-                <div class="choice-container"> 
-                    <p class="choice-prefix">D</p>
-                    <p class="choice-text" data-number="4">choice 4</p>
-                </div>
-
             </div>
 
 <!-- BUTTONS -->
@@ -64,7 +65,7 @@
 
                 <div id="startButton">                 
                     <button id="start"> start </button>
-                    <a href="../Javascript-Timed-Quiz/Highscores/highscores.html" class="Highscores" (click)="$event.preventDefault()">Highscores</a>
+
                 </div>
 
             </div> 
@@ -77,6 +78,9 @@
 
 </body>
 </html>
+
+
+
 
 
 

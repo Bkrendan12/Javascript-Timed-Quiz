@@ -1,12 +1,14 @@
 var startBtn = document.querySelector("#start");
 var questionsBox = document.querySelector(".questionsDiv");
 var quizContainer = document.getElementById("quiz-container");
-var highScoreBtn = document.querySelector(".Highscores");
+
 
 var questionTitle = document.querySelector("#question");
 
-var test = document.querySelector("#question");
-
+var choiceText = document.querySelector(".answer");
+var wrongAnswer = document.querySelector(".wrong");
+var scoreBoard = document.querySelector("#scoreBoard");
+var submitBtn = document.querySelector("#submitBtn")
 
 
 var questionsArray = [  
@@ -55,90 +57,62 @@ var questionsArray = [
         }
      ];
 
+     var score = 0;
+     var timer = 11;
 
 startBtn.addEventListener('click',function(){
-    startBtn.style.display='none';
- 
-    let counter = 5;
+    startBtn.style.display='none';   
 
     setInterval(function() {
-        counter--;    
-        if (counter > 0 ) {
+        timer--;    
+        if (timer > 0 ) {
             countdown = document.getElementById("countdown");
-            countdown.innerHTML = counter;
+            countdown.innerHTML = timer;
         } 
-        if (counter === 0) {
+        if (timer === 0) {
             countdown.innerHTML = "End";
             clearInterval(setInterval);
             questionsBox.setAttribute("style", "width: 250px; height: 150px");
+            quizContainer.setAttribute("style", "width: 25%")
             questionsBox.style.display = 'none';
-            highScoreBtn.style.visibility = 'visible';
-        
-            
+            scoreBoard.style.display = 'none';
+            submitBtn.style.visibility = 'visible';
         }
     }, 1000);
   
   });
 
+  function scoreUpDown() {
+    scoreBoard.textContent = score;
+  }
+  choiceText.addEventListener("click", function() {
+    score++;
+    scoreUpDown();
+  })
+  
+  wrongAnswer.addEventListener("click", function() {
+    timer = timer-8;
+    
+    if (score > 0 && timer >= 8) {
+        score--;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-    //  let SCORE_POINTS = 100;
-    //  let MAX_QUESTIONS = 4;
-
-    //  function startGame() {
-    //     questionCounter = 0;
-    //     score = 0;
-    //     availableQuestions = [...questions];
-    //     getNewQuestion();   
-    //  }
+    scoreUpDown();
+  })
  
-    //  function getNewQuestion() {
-    //      if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
-    //          localStorage.setItem('mostRecentScore', score)
-    //          return window.location.assign('/end.html')
-    //      }
+ 
 
-    //      questionCounter++
-    //      let questionIndex = Math.floor(Math.random() * availableQuestions.length)
-    //      currentQuestion = availableQuestions[questionIndex]
-    //      question.innertext = currentQuestion.question
-    //      choices.forEach(choice => {
-    //          let number = choice.dataset['number']
-    //          choice.innertext = currentQuestion['choice']
-    //      })
+  
 
-    //      availableQuestions.splice(questionIndex, 1)
 
-    //      acceptingAnswers = true;
-    //  }
 
-    //  choices.forEach(choice => {
-    //      choice.addEventListener('click', e => {
-    //          if(!acceptingAnswers)
-    //          return
-    //          acceptingAnswers = false;
-    //          let selectedChoice = e.target
-    //          let selectedAnswers = selectedChoice.dataset['number'];
-    //          let classToApply = selectedAnswer == currentQuestion.asnwer ? 'correct' : 'incorrect'
 
-    //          if(classToApply === 'correct') {
-    //              incrementScore(SCORE_POINTS);
 
-    //          }
 
-    //          selectedChoice.parentElement.classList.add(classToApply)
-    //      })
-    //  })
+
+
+
+
 
 
 
@@ -155,4 +129,46 @@ startBtn.addEventListener('click',function(){
 
 
 
+//   let quizQuestions = [
+//     ["What does parseInt do?",
 
+//        [ "evaluates JavaScript code represented as a string", 
+//          "parses a string argument and returns an integer of the specified radix",
+//          "it pops up a prompt window in your browser",
+//          "it turns a string into a number"
+//         ], 
+
+//          "parses a string argument and returns an integer of the specified radix"],
+
+    
+//     ["how to do declare a variable?", 
+        
+//         [ "variable name = value",
+//           "var name = value;",
+//           "var = name.value;",
+//           "var.name.value"
+//          ],
+
+//          "var name = value;"],
+
+//     ["which of these will evaluate to the number 20?",
+
+//         [ "twenty = '20' ",
+//           "var twenty = '10' + '10'; ",
+//           "var twenty = 10 + '10'; ",
+//           "var twenty = 10 + 10; "
+//           ],
+
+//            "var twenty = 10 + 10; "],
+
+//     ["what is the proper syntax for this function?",
+     
+//         [ "myfunction() (console.log('Hello World!'); ",
+//           "function MYFUNCTION {console.log('Hello World!'}; ",
+//           "function myFunction() {console.log('Hello World!')}; ",
+//           "function() = myFunction {console.log(12)} ",
+//          ],
+
+//           "function() = myFunction {console.log(12)} "]     
+
+//     ]
