@@ -2,173 +2,159 @@ var startBtn = document.querySelector("#start");
 var questionsBox = document.querySelector(".questionsDiv");
 var quizContainer = document.getElementById("quiz-container");
 
-
 var questionTitle = document.querySelector("#question");
 
-var choiceText = document.querySelector(".answer");
+var choiceText = document.querySelectorAll(".answer");
 var wrongAnswer = document.querySelector(".wrong");
 var scoreBoard = document.querySelector("#scoreBoard");
-var submitBtn = document.querySelector("#submitBtn")
+var submitBtn = document.querySelector("#submitBtn");
+var highscore = document.getElementById("hsBanner");
+var board = document.getElementById("scoresContainer");
+const body = document.getElementById("body");
 
+var questionsArray = [
+  //question one
+  {
+    question: "What does parseInt do?",
 
-var questionsArray = [  
-        {   
-         question: "What does parseInt do?",
-     
-         choice1: "parses a string argument and returns a floating point number.",
-         choice2: "evaluates JavaScript code represented as a string.",
-         choice3: "parses a string argument and returns an integer of the specified radix",
-         choice4: "it pops up a prompt window in your browser.",
-     
-         answer: 3,
-        },
-     
-     {
-         question: "how to do declare a variable?",
-     
-         choice1: "variable name = value",
-         choice2: "var NAME = value;",
-         choice3: "var name = value;",
-         choice4: "var = name.value;",
-     
-         answer: 3,
-        },
-     
-     {
-         question: "which of these will evaluate to the number 20?",
-     
-         choice1: "twenty = '20' ",
-         choice2: "var twenty = '10' + '10'; ",
-         choice3: "var twenty = 10 + '10'; ",
-         choice4: "var twenty = 10 + 10; ",
-     
-         answer: 4,
-        },
-     
-     {
-         question: "what is the proper syntax for this function?",
-     
-         choice1: "myfunction() (console.log('Hello World!'); ",
-         choice2: "function MYFUNCTION {console.log('Hello World!'}; ",
-         choice3: "function myFunction() {console.log('Hello World!')}; ",
-         choice4: "function() = myFunction {console.log(12)} ",
+    choice1: "parses a string argument and returns a floating point number.",
+    choice2: "evaluates JavaScript code represented as a string.",
+    choice3:
+      "parses a string argument and returns an integer of the specified radix",
+    choice4: "it pops up a prompt window in your browser.",
 
-         answer: 3,
-        }
-     ];
+    answer: "parses a string argument and returns an integer of the specified radix",
+  },
 
-     var score = 0;
-     var timer = 11;
+  //question 2
 
-startBtn.addEventListener('click',function(){
-    startBtn.style.display='none';   
+  {
+    question: "how to do declare a variable?",
 
-    setInterval(function() {
-        timer--;    
-        if (timer > 0 ) {
-            countdown = document.getElementById("countdown");
-            countdown.innerHTML = timer;
-        } 
-        if (timer === 0) {
-            countdown.innerHTML = "End";
-            clearInterval(setInterval);
-            questionsBox.setAttribute("style", "width: 250px; height: 150px");
-            quizContainer.setAttribute("style", "width: 25%")
-            questionsBox.style.display = 'none';
-            scoreBoard.style.display = 'none';
-            submitBtn.style.visibility = 'visible';
-        }
-    }, 1000);
-  
-  });
+    choice1: "variable name = value",
+    choice2: "var NAME = value;",
+    choice3: "var name = value;",
+    choice4: "var = name.value;",
 
-  function scoreUpDown() {
-    scoreBoard.textContent = score;
+    answer: "var name = value;",
+  },
+
+  //question 2
+
+  {
+    question: "which of these will evaluate to the number 20?",
+
+    choice1: "twenty = '20' ",
+    choice2: "var twenty = '10' + '10'; ",
+    choice3: "var twenty = 10 + '10'; ",
+    choice4: "var twenty = 10 + 10; ",
+
+    answer: "var twenty = 10 + 10; ",
+  },
+  //question 4
+  {
+    question: "what is the proper syntax for this function?",
+
+    choice1: "myfunction() (console.log('Hello World!'); ",
+    choice2: "function MYFUNCTION {console.log('Hello World!'}; ",
+    choice3: "function myFunction() {console.log('Hello World!')}; ",
+    choice4: "function() = myFunction {console.log(12)} ",
+
+    answer: "function myFunction() {console.log('Hello World!')}; ",
+  },
+];
+
+var score = 0;
+var timer = 30;
+
+var questionNumber = 0;
+var timerScore = 0;
+
+function displayQuestion() {
+  var OBJECT = questionsArray[questionNumber];
+
+  var { question, choice1, choice2, choice3, choice4 } = OBJECT;
+
+  var choiceArray = [choice1, choice2, choice3, choice4];
+
+  questionTitle.textContent = question;
+
+  for (var i = 0; i < 4; i++) {
+    var input = choiceText[i];
+    var choice = choiceArray[i];
+
+    input.innerHTML = choice;
   }
-  choiceText.addEventListener("click", function() {
-    score++;
-    scoreUpDown();
-  })
-  
-  wrongAnswer.addEventListener("click", function() {
-    timer = timer-8;
-    
-    if (score > 0 && timer >= 8) {
-        score--;
-    }
+}
 
-    scoreUpDown();
-  })
- 
- 
+function clearQuestion() {
+  questionsBox.setAttribute("style", "width: 250px; height: 150px");
+  quizContainer.setAttribute("style", "width: 25%");
+  questionsBox.style.display = "none";
+  scoreBoard.style.display = "none";
+  submitBtn.style.visibility = "visible";
+}
 
-  
+startBtn.addEventListener("click", function () {
+  startBtn.style.display = "none";
 
+  displayQuestion();
 
+  for (var i = 0; i < 4; i++) {
+    var input = choiceText[i];
+    input.addEventListener("click", function (e) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
- 
-
-
-
-
-//   let quizQuestions = [
-//     ["What does parseInt do?",
-
-//        [ "evaluates JavaScript code represented as a string", 
-//          "parses a string argument and returns an integer of the specified radix",
-//          "it pops up a prompt window in your browser",
-//          "it turns a string into a number"
-//         ], 
-
-//          "parses a string argument and returns an integer of the specified radix"],
-
-    
-//     ["how to do declare a variable?", 
+      if (questionNumber >= questionsArray.length - 1) {
         
-//         [ "variable name = value",
-//           "var name = value;",
-//           "var = name.value;",
-//           "var.name.value"
-//          ],
+        clearQuestion();
+        timerScore = timer;
 
-//          "var name = value;"],
+        return;
+      }
 
-//     ["which of these will evaluate to the number 20?",
+      const myPick = e.currentTarget.innerText
+      const answer = questionsArray[questionNumber].answer
+      console.log(myPick, answer)
+      
+      if (myPick === answer ) {
+          console.log('herere')
+        score += 1;
+      }
 
-//         [ "twenty = '20' ",
-//           "var twenty = '10' + '10'; ",
-//           "var twenty = 10 + '10'; ",
-//           "var twenty = 10 + 10; "
-//           ],
+      questionNumber++;
+      console.log(questionNumber);
+      displayQuestion();
+    });
+  }
 
-//            "var twenty = 10 + 10; "],
+  setInterval(function () {
+    timer--;
+    countdown = document.getElementById("countdown");
+    if(!countdown) return
+    if (timer >= 0) {
+      
+      countdown.innerHTML = timer;
+    }else if (timer === 0) {
+      countdown.innerHTML = "End";
+      clearInterval(setInterval);
+      clearQuestion();
+    } else {
+        return
+    }
+  }, 1000);
+});
 
-//     ["what is the proper syntax for this function?",
-     
-//         [ "myfunction() (console.log('Hello World!'); ",
-//           "function MYFUNCTION {console.log('Hello World!'}; ",
-//           "function myFunction() {console.log('Hello World!')}; ",
-//           "function() = myFunction {console.log(12)} ",
-//          ],
-
-//           "function() = myFunction {console.log(12)} "]     
-
-//     ]
+submitBtn.addEventListener("click", () => {
+//   highscore.classList.remove("hide");
+  console.log(body);
+  var scoreText = `Your time is ${timerScore} and you answered ${score} right`;
+  body.innerHTML = `        
+  <div  id="hsBanner">
+    <h1>HIGH SCORES!</h1>
+</div>
+<div id="scoresContainer">
+    ${scoreText}
+</div>`;
+  console.log(scoreText);
+  
+});
