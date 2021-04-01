@@ -1,9 +1,7 @@
 var startBtn = document.querySelector("#start");
 var questionsBox = document.querySelector(".questionsDiv");
 var quizContainer = document.getElementById("quiz-container");
-
 var questionTitle = document.querySelector("#question");
-
 var choiceText = document.querySelectorAll(".answer");
 var wrongAnswer = document.querySelector(".wrong");
 var scoreBoard = document.querySelector("#scoreBoard");
@@ -19,8 +17,7 @@ var questionsArray = [
 
     choice1: "parses a string argument and returns a floating point number.",
     choice2: "evaluates JavaScript code represented as a string.",
-    choice3:
-      "parses a string argument and returns an integer of the specified radix",
+    choice3:"parses a string argument and returns an integer of the specified radix",
     choice4: "it pops up a prompt window in your browser.",
 
     answer: "parses a string argument and returns an integer of the specified radix",
@@ -65,24 +62,22 @@ var questionsArray = [
 ];
 
 var score = 0;
-var timer = 30;
+var timer = 5;
+var totalQ = 4;
 
 var questionNumber = 0;
 var timerScore = 0;
 
 function displayQuestion() {
   var OBJECT = questionsArray[questionNumber];
-
   var { question, choice1, choice2, choice3, choice4 } = OBJECT;
-
   var choiceArray = [choice1, choice2, choice3, choice4];
 
   questionTitle.textContent = question;
 
-  for (var i = 0; i < 4; i++) {
+  for (var i = 0; i < choiceArray.length; i++) {
     var input = choiceText[i];
     var choice = choiceArray[i];
-
     input.innerHTML = choice;
   }
 }
@@ -105,20 +100,19 @@ startBtn.addEventListener("click", function () {
     input.addEventListener("click", function (e) {
 
       if (questionNumber >= questionsArray.length - 1) {
-        
         clearQuestion();
         timerScore = timer;
-
         return;
       }
-
       const myPick = e.currentTarget.innerText
       const answer = questionsArray[questionNumber].answer
       console.log(myPick, answer)
       
       if (myPick === answer ) {
-          console.log('herere')
         score += 1;
+      } else {
+          score -= 1;
+          timer -= 4
       }
 
       questionNumber++;
@@ -131,7 +125,7 @@ startBtn.addEventListener("click", function () {
     timer--;
     countdown = document.getElementById("countdown");
     if(!countdown) return
-    if (timer >= 0) {
+    if (timer >0) {
       
       countdown.innerHTML = timer;
     }else if (timer === 0) {
@@ -144,17 +138,45 @@ startBtn.addEventListener("click", function () {
   }, 1000);
 });
 
-submitBtn.addEventListener("click", () => {
-//   highscore.classList.remove("hide");
+submitBtn.addEventListener("click", function() {
   console.log(body);
-  var scoreText = `Your time is ${timerScore} and you answered ${score} right`;
-  body.innerHTML = `        
+  var scoreText = `Your score is ${score} and you finished in ${timerScore} seconds`;
+ 
+  body.innerHTML = `         
   <div  id="hsBanner">
     <h1>HIGH SCORES!</h1>
-</div>
-<div id="scoresContainer">
+  </div>
+
+  <div id="scoresContainer">
     ${scoreText}
-</div>`;
-  console.log(scoreText);
-  
+  </div>`;
+  console.log(scoreText);  
 });
+
+// timer stopping after first question answered
+// Answers not matching up with what I set them as
+// console not logging all 4 questions
+// subtracting time even after it hits zero so when you submit
+// the score, it sometimes shows up in teh negatives
+// time interval isnt clearing after the last question is answered 
+// AND after the timer runs out. line 132 has the text changing to
+// "end" (which isnt happening)
+// question 3 all answers are wrong?
+// on the quiz wuestion 1 and 2 are choice 3 and it doesnt track whats right
+// i answered 1, 2, and 4 correctly because the score didnt subtract, and it only gave me a score of 1
+
+// var characters = [
+// 	{name: "Brian", age: 25} ,
+// 	{name: "Jim", age: 16} ,
+// 	{name: "ted", age: 31} ,
+// ]
+
+// for(let i =0; i < characters.length; i++) {
+
+//     if(characters[i].age > 20){
+//         console.log(...characters[i].name);
+//     }
+
+
+   
+// }

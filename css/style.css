@@ -57,9 +57,26 @@ body {
      0 -90px 40px #85f9a0,
     5px -100px 80px #135e2c,
        
-    1px 1px 0 rgb(163, 244, 163),
+    1px 1px 0 rgb(32, 155, 32),
     1px 1px 0 green,
     1px 1px 0 rgb(8, 0, 155);
+}
+
+h1 {
+    font-size: 25px;
+    text-shadow: 0 0 15px #fefcc9,
+    5px -15px 20px #602222,
+    -25px -25px 30px #345e30,
+    15px -45px 40px #2b7b15,
+    -15px -70px 50px #8fe68f,
+     0 -90px 40px #85f9a0,
+    5px -100px 80px #95fcb7,
+       
+    1px 1px 0 rgb(32, 155, 32),
+    1px 1px 0 green,
+    1px 1px 0 rgb(8, 0, 155);
+    color: #b0ffa6;
+    margin-bottom: 10px;
 }
 
 h2 {
@@ -93,8 +110,9 @@ h2 {
     background-color: #ac6161;
     margin: 20px 0 50px 0;
     background: linear-gradient(#374f23, #4d4216);
-    border-radius: 7px;
+    border-radius: 20px;
     opacity: 90%;
+    box-shadow: 0 0 60px rgb(143, 249, 148);
 }
 
 .questionsDiv {
@@ -102,14 +120,14 @@ h2 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 75%;
-    height: 250px;
-    background-color: #84d093;
-    text-align: left;
+    width: 85%;
+    height: 280px;
+    text-align: center;
     padding: 10px;
     margin-top: 30px;
     font-size: 15px;
 }
+
 
 #question {
     display: flex;
@@ -117,7 +135,6 @@ h2 {
     justify-content: center;
     align-items: center;
     text-align: center;
-    
 }
 
 .answer-container {
@@ -128,17 +145,18 @@ h2 {
     margin-bottom: 10px;
     border-radius: 4px;
     width: 100%;
-    font-size: 18px;
+    font-size: 10px;
     text-align: center;
     visibility: visible;
     cursor: pointer;
+
 }
 
 .answer-container:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(12, 20, 13, 0.6);
     transform: scale(1.02);
     transform: transform 100ms;
+    width: 100%;
 }
 
 form {
@@ -148,23 +166,27 @@ form {
     align-items: center;
     width: 100%;
 }
-
-
 .answer {
-    width: 100%;  height: 10em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 85%;  height: 15px;
     background-color: #b6f5c4;
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    margin: 5px 0 0 0;
+    margin: 5px 0 15px 0;
     height: 35px;
     -webkit-appearance: button;
     -moz-appearance: button;
     appearance: button;
     text-decoration: none;
     color: rgb(0, 0, 0);
+    text-align: center;
     font-size: 15px;
     visibility: visible;
+    box-shadow: 0 0 60px rgb(143, 249, 148);
     text-shadow: 0 0 15px #fefcc9,
     5px -15px 20px #602222,
     -25px -25px 30px #345e30,
@@ -178,6 +200,7 @@ form {
     1px 1px 0 rgb(8, 0, 155);
 }
 
+
 #submitBtn {
     display: flex;
     flex-direction: row;
@@ -187,21 +210,9 @@ form {
     visibility: hidden;
     background-color: rgb(211, 245, 188);
     margin: 20px;
-}
-
-.answer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    width: 100%;
-    background: #85f9a0;
-    font-size: 18px;
-    text-align: center;
-    visibility: visible;
-    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
 }
 
 /* BUTTONS */
@@ -244,7 +255,6 @@ form {
 #start:focus {
      outline: none;
  }
- 
 
  a.Highscores {
     -webkit-appearance: button;
@@ -261,7 +271,6 @@ form {
     -15px -70px 50px #8fe68f,
      0 -90px 40px #85f9a0,
     5px -100px 80px #135e2c,
-       
     1px 1px 0 rgb(163, 244, 163),
     1px 1px 0 green,
     1px 1px 0 rgb(8, 0, 155);
@@ -276,6 +285,18 @@ form {
     justify-content: center;
     align-items: center;
     margin: 100px 0 20px 0;
+    color: #8fe68f;
+    text-shadow: 0 0 15px #fefcc9,
+    5px -15px 20px #602222,
+    -25px -25px 30px #345e30,
+    15px -45px 40px #2b7b15,
+    -15px -70px 50px #8fe68f,
+     0 -90px 40px #85f9a0,
+    5px -100px 80px #135e2c,
+       
+    1px 1px 0 rgb(163, 244, 163),
+    1px 1px 0 green,
+    1px 1px 0 rgb(8, 0, 155);
 }
 
 #scoresContainer {
@@ -284,7 +305,24 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(48, 15, 15);
-    width: 50%;
-    height: 500px;
+    background-image: linear-gradient(
+    140deg,
+  #97c490 0%, #579b44 50%, #114a09 75%);
+    width: 45%;
+    height: 400px;
+    font-size: 30px;
+    border-radius: 15px;
+    color: #192d19;
+    text-shadow: 0 0 15px #a8f2af,
+    5px -15px 20px #602222,
+    -25px -25px 30px #345e30,
+    15px -45px 40px #2b7b15,
+    -15px -70px 50px #8fe68f,
+     0 -90px 40px #85f9a0,
+    5px -100px 80px #135e2c,
+       
+    1px 1px 0 rgb(163, 244, 163),
+    1px 1px 0 green,
+    1px 1px 0 rgb(8, 0, 155);
+    padding: 20px;
 }

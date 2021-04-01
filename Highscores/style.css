@@ -18,6 +18,8 @@ body {
     justify-content: center;
     align-items: center;
     margin: 100px 0 20px 0;
+    color: rgb(154, 232, 164);
+    
 }
 
 #scoresContainer {
@@ -28,6 +30,7 @@ body {
     align-items: center;
     background-color: rgb(48, 15, 15);
     width: 50%;
-    height: 500px;
+    height: 400px;
+    font-size: xx-large;
 }
 
