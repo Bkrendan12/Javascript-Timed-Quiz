@@ -63,7 +63,7 @@ body {
 }
 
 h1 {
-    font-size: 25px;
+    font-size: 30px;
     text-shadow: 0 0 15px #fefcc9,
     5px -15px 20px #602222,
     -25px -25px 30px #345e30,
@@ -88,11 +88,12 @@ h2 {
     height: auto;
     margin: 0 50px 0 50px;
     padding: 0;
+   
 }
 
 #countdown {
     margin: 0;
-    font-size: 50px;
+    font-size: 80px;
     width: 50%;
     height: auto;
 }
@@ -128,6 +129,14 @@ h2 {
     font-size: 15px;
 }
 
+/* submit quiz/ enter name input  */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
 
 #question {
     display: flex;
@@ -203,14 +212,14 @@ form {
 
 #submitBtn {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     visibility: hidden;
     background-color: rgb(211, 245, 188);
     margin: 20px;
-    width: 100px;
+    width: 100%;
     height: 40px;
     font-size: 15px;
 }
@@ -308,11 +317,12 @@ form {
     background-image: linear-gradient(
     140deg,
   #97c490 0%, #579b44 50%, #114a09 75%);
-    width: 45%;
+    width: 700px;
+    box-shadow:0 0 50px 5px #579b44;
     height: 400px;
     font-size: 30px;
     border-radius: 15px;
-    color: #192d19;
+    color: #e2ffe2;
     text-shadow: 0 0 15px #a8f2af,
     5px -15px 20px #602222,
     -25px -25px 30px #345e30,
@@ -324,5 +334,6 @@ form {
     1px 1px 0 rgb(163, 244, 163),
     1px 1px 0 green,
     1px 1px 0 rgb(8, 0, 155);
-    padding: 20px;
+    padding: 40px;
+    opacity: 90%;
 }

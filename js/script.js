@@ -26,11 +26,11 @@ var questionsArray = [
   //question 2
 
   {
-    question: "how to do declare a variable?",
+    question: "how do you declare a variable?",
 
     choice1: "variable name = value",
-    choice2: "var NAME = value;",
-    choice3: "var name = value;",
+    choice2: "var name = value;", 
+    choice3: "var.NAME = value;",
     choice4: "var = name.value;",
 
     answer: "var name = value;",
@@ -41,10 +41,10 @@ var questionsArray = [
   {
     question: "which of these will evaluate to the number 20?",
 
-    choice1: "twenty = '20' ",
+    choice1: "var twenty = 10 + 10; ",
     choice2: "var twenty = '10' + '10'; ",
     choice3: "var twenty = 10 + '10'; ",
-    choice4: "var twenty = 10 + 10; ",
+    choice4: "twenty = '20' ",
 
     answer: "var twenty = 10 + 10; ",
   },
@@ -62,7 +62,7 @@ var questionsArray = [
 ];
 
 var score = 0;
-var timer = 5;
+var timer = 20;
 var totalQ = 4;
 
 var questionNumber = 0;
@@ -91,7 +91,8 @@ function clearQuestion() {
 }
 
 startBtn.addEventListener("click", function () {
-  startBtn.style.display = "none";
+//   startBtn.style.display = "none";
+startBtn.setAttribute("style", "display: none;")
 
   displayQuestion();
 
@@ -99,48 +100,53 @@ startBtn.addEventListener("click", function () {
     var input = choiceText[i];
     input.addEventListener("click", function (e) {
 
-      if (questionNumber >= questionsArray.length - 1) {
-        clearQuestion();
-        timerScore = timer;
-        return;
-      }
-      const myPick = e.currentTarget.innerText
+      const myPick = e.currentTarget.textContent
       const answer = questionsArray[questionNumber].answer
       console.log(myPick, answer)
       
       if (myPick === answer ) {
         score += 1;
       } else {
-          score -= 1;
-          timer -= 4
+          
+          timer -= 5
       }
 
       questionNumber++;
       console.log(questionNumber);
+      if (questionNumber >= questionsArray.length ) {  
+        clearQuestion();
+        clearInterval(interval);
+        countdown.innerHTML = "End";
+        timerScore = timer;
+        return;     
+      } 
+
       displayQuestion();
     });
   }
-
-  setInterval(function () {
+  
+  let interval = setInterval(function () {
     timer--;
     countdown = document.getElementById("countdown");
-    if(!countdown) return
+    if(!countdown) return // what does return do
     if (timer >0) {
       
       countdown.innerHTML = timer;
     }else if (timer === 0) {
       countdown.innerHTML = "End";
-      clearInterval(setInterval);
+      clearInterval(interval);
       clearQuestion();
     } else {
-        return
+        return // what does return do
     }
   }, 1000);
 });
 
 submitBtn.addEventListener("click", function() {
   console.log(body);
-  var scoreText = `Your score is ${score} and you finished in ${timerScore} seconds`;
+  var scoreName = document.querySelector("#enter-name");
+  //scoreName.textContent = ?
+  var scoreText = `Score: ${score} You finished the quiz in ${timerScore} seconds`;
  
   body.innerHTML = `         
   <div  id="hsBanner">
@@ -153,30 +159,12 @@ submitBtn.addEventListener("click", function() {
   console.log(scoreText);  
 });
 
-// timer stopping after first question answered
-// Answers not matching up with what I set them as
-// console not logging all 4 questions
-// subtracting time even after it hits zero so when you submit
-// the score, it sometimes shows up in teh negatives
-// time interval isnt clearing after the last question is answered 
-// AND after the timer runs out. line 132 has the text changing to
-// "end" (which isnt happening)
-// question 3 all answers are wrong?
-// on the quiz wuestion 1 and 2 are choice 3 and it doesnt track whats right
-// i answered 1, 2, and 4 correctly because the score didnt subtract, and it only gave me a score of 1
 
-// var characters = [
-// 	{name: "Brian", age: 25} ,
-// 	{name: "Jim", age: 16} ,
-// 	{name: "ted", age: 31} ,
-// ]
+////////// WHEN the game is over
+////////// THEN I can save my initials and score
 
-// for(let i =0; i < characters.length; i++) {
+///////// AS A coding boot camp student
+///////// I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
+///////// SO THAT I can gauge my progress compared to my peers
 
-//     if(characters[i].age > 20){
-//         console.log(...characters[i].name);
-//     }
-
-
-   
-// }
+///////// How to store saved name to highscores page

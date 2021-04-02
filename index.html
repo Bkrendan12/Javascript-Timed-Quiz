@@ -25,10 +25,7 @@
             <img src="./css/quiz-logo copy.png" alt="quiz logo">
         </div>
 
-        <div id="timer-div">
-            <h2 id="countdown"></h2>
-            <h2 id="scoreBoard">  </h2>
-        </div>
+      
       
       </div>
 
@@ -55,10 +52,11 @@
             </div>
 
             <div class="wrapper">
-                        <h3 class="quiz-page"></h3>
-                        <!-- <form action="../Javascript-Timed-Quiz/Highscores/highscores.html"> -->
-                           <input id="submitBtn" type="submit" value="Submit Quiz">
-                        <!-- </form> -->
+                           <h3 class="quiz-page"></h3>
+                            <!-- fix styling for enter name and make it functional with sending it to javvascript -->
+                            <input id="enter-name" style="visibility: hidden;" type="text" placeholder="Type Your Name">
+                            <input id="submitBtn" type="submit" value="Submit Quiz to Highscores">
+                        
             </div>
 <!-- BUTTONS -->
  
@@ -67,8 +65,13 @@
                 <div id="startButton">                 
                     <button id="start"> start </button>
                 </div>
-            </div>         
+            </div>    
+               
         </div>
+        <div id="timer-div">
+            <h2 id="countdown"></h2>
+            <h2 id="scoreBoard">  </h2>
+        </div>  
 
 </body>
 </html>
