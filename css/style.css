@@ -168,6 +168,10 @@ h2 {
     width: 100%;
 }
 
+.quiz-page {
+  margin: 8px;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -209,9 +213,13 @@ form {
     1px 1px 0 rgb(8, 0, 155);
 }
 
+#enter-name {
+    visibility: hidden;
+}
 
 #submitBtn {
     display: flex;
+    cursor: pointer;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
@@ -220,8 +228,9 @@ form {
     background-color: rgb(211, 245, 188);
     margin: 20px;
     width: 100%;
-    height: 40px;
-    font-size: 15px;
+    height: 50px;
+    padding: 10px;
+    font-size: 13px;
 }
 
 /* BUTTONS */
@@ -312,15 +321,15 @@ form {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content:center;
+    align-items:flex-start;
     background-image: linear-gradient(
     140deg,
   #97c490 0%, #579b44 50%, #114a09 75%);
     width: 700px;
     box-shadow:0 0 50px 5px #579b44;
     height: 400px;
-    font-size: 30px;
+    font-size: 20px;
     border-radius: 15px;
     color: #e2ffe2;
     text-shadow: 0 0 15px #a8f2af,

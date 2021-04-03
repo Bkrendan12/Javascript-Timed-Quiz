@@ -6,9 +6,13 @@ var choiceText = document.querySelectorAll(".answer");
 var wrongAnswer = document.querySelector(".wrong");
 var scoreBoard = document.querySelector("#scoreBoard");
 var submitBtn = document.querySelector("#submitBtn");
+var enterName = document.querySelector("#enter-name");
 var highscore = document.getElementById("hsBanner");
 var board = document.getElementById("scoresContainer");
 const body = document.getElementById("body");
+
+
+
 
 var questionsArray = [
   //question one
@@ -87,6 +91,7 @@ function clearQuestion() {
   quizContainer.setAttribute("style", "width: 25%");
   questionsBox.style.display = "none";
   scoreBoard.style.display = "none";
+  enterName.setAttribute("style", "visibility: visible");
   submitBtn.style.visibility = "visible";
 }
 
@@ -142,29 +147,80 @@ startBtn.setAttribute("style", "display: none;")
   }, 1000);
 });
 
-submitBtn.addEventListener("click", function() {
+
+
+var highscoresArr = [];
+var localStorageContent = localStorage.getItem('High Scores')
+localStorageContent = JSON.parse(localStorageContent);
+
+if(localStorageContent !== null) {
+    highscoresArr = localStorageContent
+}
+
+console.log(localStorageContent);
+
+submitBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+
   console.log(body);
-  var scoreName = document.querySelector("#enter-name");
-  //scoreName.textContent = ?
+  console.log(event);
+
+
+  enterName.value = enterName.value;
+
+
+
   var scoreText = `Score: ${score} You finished the quiz in ${timerScore} seconds`;
- 
+  var currentScore = {'name': enterName.value, 'scoreTimer': scoreText};
+  highscoresArr.push(currentScore);
+  localStorage.setItem('High Scores', JSON.stringify(highscoresArr));
+  var userDisplayName = "";
+
+  for(var i = 0; i < highscoresArr.length; i++){
+    highscoresArr[i]
+    console.log(highscoresArr[i]);
+    userDisplayName += `
+    <div id="name-container">
+  ${'Player Name: ' +  highscoresArr[i].name} 
+
+  </div>
+
+  <div>
+    ${highscoresArr[i].scoreTimer}
+  </div>`;
+  }
+
   body.innerHTML = `         
   <div  id="hsBanner">
     <h1>HIGH SCORES!</h1>
   </div>
 
   <div id="scoresContainer">
-    ${scoreText}
+    ${userDisplayName}
   </div>`;
-  console.log(scoreText);  
+
+  localStorage.setItem('Player Score/Time', scoreText)
+
+  console.log("Player Name: " + enterName.value + scoreText); 
+
+  var savedName = localStorage.getItem('Player Name');
+  var savedScore = localStorage.getItem('Player Score/Time');
+
+if (savedName) {
+	enterName.textContent = savedName;
+} else if (savedScore) {
+    scoreText.textContent = savedScore
+}
+
 });
 
 
-////////// WHEN the game is over
-////////// THEN I can save my initials and score
 
-///////// AS A coding boot camp student
-///////// I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-///////// SO THAT I can gauge my progress compared to my peers
 
-///////// How to store saved name to highscores page
+
+
+
+
+
+
+
