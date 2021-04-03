@@ -67,7 +67,7 @@ var questionsArray = [
 
 var score = 0;
 var timer = 20;
-var totalQ = 4;
+
 
 var questionNumber = 0;
 var timerScore = 0;
@@ -165,16 +165,19 @@ submitBtn.addEventListener("click", function(event) {
   console.log(body);
   console.log(event);
 
+  if(enterName.value === '') {
+      alert("You need to enter a name!") 
+      return
+  } 
 
-  enterName.value = enterName.value;
-
-
-
+  enterName.value = enterName.value; ///
+  
   var scoreText = `Score: ${score} You finished the quiz in ${timerScore} seconds`;
   var currentScore = {'name': enterName.value, 'scoreTimer': scoreText};
+
   highscoresArr.push(currentScore);
   localStorage.setItem('High Scores', JSON.stringify(highscoresArr));
-  var userDisplayName = "";
+  var userDisplayName = ""; ///
 
   for(var i = 0; i < highscoresArr.length; i++){
     highscoresArr[i]
@@ -198,6 +201,7 @@ submitBtn.addEventListener("click", function(event) {
   <div id="scoresContainer">
     ${userDisplayName}
   </div>`;
+  
 
   localStorage.setItem('Player Score/Time', scoreText)
 
@@ -206,6 +210,8 @@ submitBtn.addEventListener("click", function(event) {
   var savedName = localStorage.getItem('Player Name');
   var savedScore = localStorage.getItem('Player Score/Time');
 
+
+  
 if (savedName) {
 	enterName.textContent = savedName;
 } else if (savedScore) {
@@ -213,10 +219,6 @@ if (savedName) {
 }
 
 });
-
-
-
-
 
 
 
