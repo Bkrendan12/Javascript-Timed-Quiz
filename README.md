@@ -44,7 +44,8 @@ Once the quiz is finished whether you answered all the available questions or th
  
 Link to webpage: 
 
-[link-to-timed-Javascript-quiz](https://bkrendan12.github.io/Javascript-Timed-Quiz/)
+[Javascript-timed-quiz](https://bkrendan12.github.io/Javascript-Timed-Quiz/)
+
 
 Contribute: 
 
