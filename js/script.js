@@ -165,7 +165,10 @@ submitBtn.addEventListener("click", function(event) {
   console.log(body);
   console.log(event);
 
-  if(enterName.value === '') {
+  let isNumber = typeof Number(enterName.value) === 'number'
+
+
+  if(enterName.value === ''  ) {
       alert("You need to enter a name!") 
       return
   } 
